@@ -13,6 +13,7 @@ function finalPos($direction, $size, $row, $column)
 {
 
     // Traverse the direction array
+    $boundary = $size-1;
     foreach($direction AS $key => $value)
     {
         if($value == 'UP'){
@@ -22,7 +23,7 @@ function finalPos($direction, $size, $row, $column)
         }else if ($value == 'DOWN'){
             $row++;
             //Remain same position if move to outside of boundary
-            ($row > $size) ? $row = $size : $row = $row;
+            ($row >= $boundary) ? $row = $boundary : $row = $row;
         }else if ($value == 'LEFT'){
             $column--;
             //Remain same position if move to outside of boundary
@@ -30,7 +31,7 @@ function finalPos($direction, $size, $row, $column)
         }else if ($value == 'RIGHT'){
             $column++;
             //Remain same position if move to outside of boundary
-            ($column > $size) ? $column = $size : $column = $column;
+            ($column >= $boundary) ? $column = $boundary : $column = $column;
         }
     }
 
